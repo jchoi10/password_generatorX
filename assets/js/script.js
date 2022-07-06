@@ -29,7 +29,14 @@ function generatePassword() {
   var userCharNum = prompt (
     "How many characters do you need for your password?"
   )
-  var passwordVal = confirmNum(userCharNum)
+  var passwordVal = confirmNum(userCharNum);
+  
+  if (passwordVal) {
+    var withLowerchar = window.confirm("Click OK if you want lower case characters.");
+    var withUpperchar = window.confirm("Click OK if you want upper case characters.");
+    var withNumchar = window.confirm("Click OK if you want numeric characters.")
+    var withSpecialchar = window.confirm("Click OK if you wnat special cahracters.")
+  }
 }
 
 function writePassword() {
