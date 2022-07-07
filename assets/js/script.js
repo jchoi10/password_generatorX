@@ -52,32 +52,41 @@ function generatePassword() {
   };
 
   //final compiled array of selected category
-  var finalincPassword = [];
+  var finalIncPassword = [];
   //one random character from each selected category
   var selectedChar = [];
 
   //select random characters in each category
   if (withLowerchar) {
-    selectedChar.push(Math.floor(Math.random()*lowerCase.length))
-    finalincPassword = finalincPassword.concat(withLowerchar)
+    selectedChar.push(Math.floor(Math.random()*lowerCase.length));
+    finalIncPassword = finalIncPassword.concat(withLowerchar)
   }
 
   if (withUpperchar) {
-    selectedChar.push(Math.floor(Math.random()*upperCase.length))
-    finalincPassword = finalincPassword.concat(withUpperchar)
+    selectedChar.push(Math.floor(Math.random()*upperCase.length));
+    finalIncPassword = finalIncPassword.concat(withUpperchar)
   }
 
   if (withNumchar) {
-    selectedChar.push(Math.floor(Math.random()*numberCase.length))
-    finalincPassword = finalincPassword.concat(withNumchar)
+    selectedChar.push(Math.floor(Math.random()*numberCase.length));
+    finalIncPassword = finalIncPassword.concat(withNumchar)
   }
 
   if (withSpecialchar) {
-    selectedChar.push(Math.floor(Math.random)*specialCase.length)
-    finalincPassword = finalincPassword.concat(withSpecialchar)
+    selectedChar.push(Math.floor(Math.random)*specialCase.length);
+    finalIncPassword = finalIncPassword.concat(withSpecialchar)
   }
-
-
+  
+  // loop to choose from compiled array of selected categories except the must include array
+  var finalPostPassword = [];
+  for (var i=0; i<userCharNum-selectedChar.length;i++) {
+    var finalSelectedChar = Math.floor(Math.random()*selectedChar.length);
+    finalPostPassword.push(selectedChar[finalSelectedChar]);
+  }
+  // compile must included one character from each selected category and randomly pulled character from compiled character
+  const finalPassword = finalPostPassword.concat(selectedChar);
+  // post final password
+  return finalPostPassword.join();
 };
 
 
