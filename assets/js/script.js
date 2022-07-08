@@ -58,35 +58,35 @@ function generatePassword() {
 
   //select random characters in each category
   if (withLowerchar) {
-    selectedChar.push(Math.floor(Math.random()*lowerCase.length));
-    finalIncPassword = finalIncPassword.concat(withLowerchar)
+    selectedChar.push(lowerCase[Math.floor(Math.random()*lowerCase.length)]);
+    finalIncPassword = finalIncPassword.concat(lowerCase)
   }
 
   if (withUpperchar) {
-    selectedChar.push(Math.floor(Math.random()*upperCase.length));
-    finalIncPassword = finalIncPassword.concat(withUpperchar)
+    selectedChar.push(upperCase[Math.floor(Math.random()*upperCase.length)]);
+    finalIncPassword = finalIncPassword.concat(upperCase)
   }
 
   if (withNumchar) {
-    selectedChar.push(Math.floor(Math.random()*numberCase.length));
-    finalIncPassword = finalIncPassword.concat(withNumchar)
+    selectedChar.push(numberCase[Math.floor(Math.random()*numberCase.length)]);
+    finalIncPassword = finalIncPassword.concat(numberCase)
   }
 
   if (withSpecialchar) {
-    selectedChar.push(Math.floor(Math.random)*specialCase.length);
-    finalIncPassword = finalIncPassword.concat(withSpecialchar)
+    selectedChar.push(specialCase[Math.floor(Math.random()*specialCase.length)]);
+    finalIncPassword = finalIncPassword.concat(specialCase)
   }
   
   // loop to choose from compiled array of selected categories except the must include array
   var finalPostPassword = [];
-  for (var i=0; i<userCharNum-selectedChar.length;i++) {
-    var finalSelectedChar = Math.floor(Math.random()*selectedChar.length);
-    finalPostPassword.push(selectedChar[finalSelectedChar]);
+  for (var i=selectedChar.length; i<userCharNum;i++) {
+    var finalSelectedChar = Math.floor(Math.random()*finalIncPassword.length);
+    finalPostPassword.push(finalIncPassword[finalSelectedChar]);
   }
   // compile must included one character from each selected category and randomly pulled character from compiled character
   const finalPassword = finalPostPassword.concat(selectedChar);
   // post final password
-  return finalPostPassword.join();
+  return finalPassword.join("");
 };
 
 
