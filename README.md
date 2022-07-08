@@ -28,6 +28,7 @@
 
 [https://jchoi10.github.io/password_generatorX/](https://jchoi10.github.io/password_generatorX/)
 
-# Issue need solving
+# Issue resolved
 
-- It does not include all the characters from chosen category
+- It generate random password.
+- selection is updated.
