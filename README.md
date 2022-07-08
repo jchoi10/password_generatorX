@@ -22,7 +22,7 @@
 
 # Screenshot of Final Webpage
 
-![screenshot](assets/Image/Password_Generator_Screenshot_sub.png)
+![screenshot](./assets/Image/Password_Generator_Screenshot_sub_rev1.png)
 
 # Live URL
 
